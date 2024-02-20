@@ -9,7 +9,7 @@ from worstWindow import worstWindowClass
 class mainWindow:
     def __init__(self):
         self.total = 0
-        self.target = 31500 # Skiftede fra 1 til 31500
+        self.target = 31500 #TODONE Skiftede fra 1 til 31500
         self.root = Tk()
 
         self.filename = 'betalinger.pk'
@@ -18,13 +18,14 @@ class mainWindow:
             infile = open(self.filename, 'rb')
             self.fodboldtur = pickle.load(infile)
             infile.close()
-            # Ændrede messagebox.showerror titlen og beskeden til dansk
+            #Todo Nogen oversættelses tingeling
+            #TODONE Ændrede messagebox.showerror titlen og beskeden til dansk
         except FileNotFoundError: #FILEN FINDES IKKE.
             ##TODO: Åbn filen??
             ##TODONE: Giv en advarsel
             messagebox.showerror(parent=self.root, title="Fejl", message="Filen blev ikke fundet!")
 
-        self.update_ui() # Tilføjede en metodekald til update_ui for at opdatere totalværdien
+        self.update_ui() #TODONE Tilføjede en metodekald til update_ui for at opdatere totalværdien
 
         velkomst = Label(self.root, text="Velkommen til fodboldtur GUI")
         velkomst.pack(pady=10)
@@ -48,7 +49,7 @@ class mainWindow:
 
         mainloop()
 
-    def update_ui(self): # Tilføjede en metode til at opdatere brugergrænsefladen (UI)
+    def update_ui(self): #TODONE Tilføjede en metode til at opdatere brugergrænsefladen (UI)
         self.total = sum(self.fodboldtur.values())
 
     def gemFilen(self):

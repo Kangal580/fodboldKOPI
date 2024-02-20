@@ -8,7 +8,7 @@ class listWindowClass:
         self.listWindow.title("List of Contributions")
         self.listWindow.geometry("500x500")
 
-        # Hard kodet member list "temporary"
+        #TODONE Hard kodet member list "temporary"
         members = [
             'Hans Hansen',
             'Klaus Klausen',
@@ -19,13 +19,13 @@ class listWindowClass:
             'Jens Jensen',
             'Ib Ibsen'
         ]
-        # Opretter etiketter for hver medlem i medlemslisten
+        #TODONE Opretter etiketter for hver medlem i medlemslisten
         Label(self.listWindow, text="List of Members").pack()
 
         for member in members:
             Label(self.listWindow, text=member).pack()
 
-        # Viser en fejlmeddelelse i en popup box
+        #TODONE Viser en fejlmeddelelse i en popup box
         self.show_error_popup("Whoops! Denne del er stadig under kodning, benyt venligst modsatte fortov")
 
     def show_error_popup(self, message):
