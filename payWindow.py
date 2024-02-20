@@ -10,21 +10,21 @@ class payWindowClass:
 
         Label(self.payWindow, text="Indbetal").pack()
 
-        self.input_name = Entry(self.payWindow)
+        self.input_name = Entry(self.payWindow) # Omdøbte variablen 'money' til 'input_amount'
         self.input_name.pack()
 
-        self.input_amount = Entry(self.payWindow)
+        self.input_amount = Entry(self.payWindow) # Tilføjede en ny Entry-widget til at indtaste medlemmets navn
         self.input_amount.pack()
 
-        self.status_label = Label(self.payWindow)
+        self.status_label = Label(self.payWindow)  #Tilføjede en ny Label-widget til at vise statusbeskeder
         self.status_label.pack()
 
-        self.button = Button(self.payWindow, text="Betal", command=self.registrer_betaling)
+        self.button = Button(self.payWindow, text="Betal", command=self.registrer_betaling) # Omdøbte 'addMoney' til 'registrer_betaling'
         self.button.pack()
 
     def registrer_betaling(self):
         member = self.input_name.get()
-        amount = float(self.input_amount.get())
+        amount = float(self.input_amount.get()) # Ændrede fra abs(int(...)) til float(...) for at tillade decimaltal
         if member in self.master.fodboldtur:
             self.master.fodboldtur[member] += amount
         else:
@@ -34,3 +34,5 @@ class payWindowClass:
         self.status_label.config(text="Betalingsregistrering fuldført.")
         self.master.gemFilen()
         self.master.update_ui()
+
+    ##TODO: FORTÆL HOVEDVINDUET AT DEN SKAL UPDATERE MED PICKLE FILEN I REALTID
