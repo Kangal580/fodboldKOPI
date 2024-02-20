@@ -1,12 +1,17 @@
-# importing tkinter module
 from tkinter import *
 
 class worstWindowClass:
-    def __init__(self, master):
-        self.master = master #reference til main window objektet
+    def __init__(self, master, fodboldtur):
+        self.master = master
+        self.fodboldtur = fodboldtur
+
         self.worstWindow = Toplevel(self.master.root)
-        self.worstWindow.title("Bottom 3")
-        self.worstWindow.geometry("200x200")
+        self.worstWindow.title("De 3 med mest gæld")
+        self.worstWindow.geometry("300x100")
 
-        Label(self.worstWindow, text="De værste betalere").pack()
+        Label(self.worstWindow, text="Top 3 medlemmer, der mangler mest at betale:").pack()
 
+        sorted_debtors = sorted(fodboldtur, key=lambda x: 4500 - fodboldtur[x], reverse=True)
+        for i, member in enumerate(sorted_debtors[:3], 1):
+            remaining_balance = 4500 - fodboldtur[member]
+            Label(self.worstWindow, text=f"{i}. {member}: Mangler {remaining_balance} kr").pack()
